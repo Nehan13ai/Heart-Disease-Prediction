@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <!-- Link to Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa; /* Light blue background */
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            margin-top: 50px;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 24px;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        .welcome-message {
+            text-align: center;
+            font-size: 20px;
+            color: #0056b3;
+            margin-top: 20px;
+            font-weight: 400;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 500;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003f8a;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                padding: 20px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Welcome Message -->
+    <h1>Welcome to Heart Disease Prediction</h1>
+    <p class="welcome-message">We use advanced AI algorithms to predict the likelihood of heart disease based on your health parameters. Please fill in the form below to get your prediction.</p>
+
+    <!-- Form for data entry -->
+    <form action="/predict" method="post">
+        <label>Age:</label>
+        <input type="text" name="age" required>
+        
+        <label>Sex:</label>
+        <input type="text" name="sex" required>
+        
+        <label>Chest Pain Type:</label>
+        <input type="text" name="cp" required>
+        
+        <label>Resting Blood Pressure:</label>
+        <input type="text" name="trestbps" required>
+        
+        <label>Cholesterol:</label>
+        <input type="text" name="chol" required>
+        
+        <label>Fasting Blood Sugar:</label>
+        <input type="text" name="fbs" required>
+        
+        <label>Resting ECG:</label>
+        <input type="text" name="restecg" required>
+        
+        <label>Max Heart Rate Achieved:</label>
+        <input type="text" name="thalach" required>
+        
+        <label>Exercise Induced Angina:</label>
+        <input type="text" name="exang" required>
+        
+        <label>ST Depression:</label>
+        <input type="text" name="oldpeak" required>
+        
+        <label>Slope of ST Segment:</label>
+        <input type="text" name="slope" required>
+        
+        <label>Major Vessels:</label>
+        <input type="text" name="ca" required>
+        
+        <label>Thal:</label>
+        <input type="text" name="thal" required>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Display Prediction Result -->
+    {% if prediction %}
+    <h2>Prediction Result: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
